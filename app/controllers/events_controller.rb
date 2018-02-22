@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    event_params = params['params']['event']
+    event_params = params
     @event = Event.new({
       title: event_params['title'],
       location: event_params['location'],

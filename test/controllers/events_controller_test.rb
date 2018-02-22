@@ -19,13 +19,13 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
    end
 
    test "should create an event" do
-     post '/events.json', params: { event: {
+     post '/events.json', {
        title: 'Dentist appointment',
        location: 'The dentist',
        duration: 1,
        isAllDay: false,
        startsAt: 1521673200000
-     }}
+     }
      assert_response :success
      event = @response.body
    end
