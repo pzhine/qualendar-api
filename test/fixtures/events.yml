@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one_hour:
+  id: 1,
+  title: Lunch with Bob
+  location: La Esquina
+  duration: 1
+  all_day: false
+  starts_at: 2018-03-22
+
+all_day:
+  id: 2,
+  title: Ides of March
+  duration: 1
+  all_day: true
+  starts_at: 2018-03-15
