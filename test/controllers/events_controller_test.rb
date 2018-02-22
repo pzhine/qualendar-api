@@ -33,7 +33,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
    end
 
    test "should update an event" do
-     patch '/events/2.json', {
+     put '/events/2.json', {
        title: 'Dentist appointment',
        location: 'The dentist',
        duration: 2,
