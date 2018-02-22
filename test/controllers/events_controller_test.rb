@@ -44,8 +44,18 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
      assert_equal 2, (Event.find 2).duration
    end
 
-   test "should return 404 if unknown event id is specified" do
+   test "should return 404 if unknown event id is specified in update" do
      patch '/events/5.json', {}
+     assert_response :missing
+   end
+
+   test "should delete an event" do
+     delete '/events/2.json'
+     assert_not Event.exists?(2)
+   end
+
+   test "should return 404 if unknown event id is specified in destroy" do
+     delete '/events/5.json'
      assert_response :missing
    end
 end

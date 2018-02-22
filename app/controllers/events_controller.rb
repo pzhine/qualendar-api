@@ -21,6 +21,12 @@ class EventsController < ApplicationController
     @event.update!(event_params params)
   end
 
+  def destroy
+    @event = Event.find params[:id]
+    @event.destroy!
+    render status: 200
+  end
+
   private
     def event_params(params)
       {
