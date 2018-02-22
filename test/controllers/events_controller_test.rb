@@ -31,4 +31,21 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
      event_id = (JSON.parse @response.body)['id']
      assert_equal 'Dentist appointment', (Event.find event_id).title
    end
+
+   test "should update an event" do
+     patch '/events/2.json', {
+       title: 'Dentist appointment',
+       location: 'The dentist',
+       duration: 2,
+       isAllDay: false,
+       startsAt: 1521673200000
+     }
+     assert_response :success
+     assert_equal 2, (Event.find 2).duration
+   end
+
+   test "should return 404 if unknown event id is specified" do
+     patch '/events/5.json', {}
+     assert_response :missing
+   end
 end

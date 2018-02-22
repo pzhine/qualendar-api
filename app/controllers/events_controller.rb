@@ -12,14 +12,23 @@ class EventsController < ApplicationController
   end
 
   def create
-    event_params = params
-    @event = Event.new({
-      title: event_params['title'],
-      location: event_params['location'],
-      duration: event_params['duration'].to_f,
-      all_day: event_params['isAllDay'],
-      starts_at: Time.at(event_params['startsAt'].to_i / 1000)
-    })
+    @event = Event.new(event_params params)
     @event.save
   end
+
+  def update
+    @event = Event.find params[:id]
+    @event.update!(event_params params)
+  end
+
+  private
+    def event_params(params)
+      {
+        title: params['title'],
+        location: params['location'],
+        duration: params['duration'].to_f,
+        all_day: params['isAllDay'],
+        starts_at: Time.at(params['startsAt'].to_i / 1000)
+      }
+    end
 end
