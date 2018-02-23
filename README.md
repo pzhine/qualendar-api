@@ -62,4 +62,4 @@ GET /events/2018/2
 #### `/events`
 Verbs: POST, PUT, DELETE
 
-Standard RESTful endpoints for manipulating Events. See [events_controller_test.rb](blob/master/test/controllers/events_controller_test.rb) for examples.
+Standard RESTful endpoints for manipulating Events. See [events_controller_test.rb](test/controllers/events_controller_test.rb) for examples.
